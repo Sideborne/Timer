@@ -1,0 +1,135 @@
+$blue: #315efb;
+$gray: #cecece;
+$white: #ffffff;
+$shadow: rgba(141,150,178,.3);
+
+@mixin reset-btn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: $gray;
+}
+
+.timer {
+  width: 350px;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 1px;
+  box-shadow: 0px 2px 5px 0px $shadow;
+  font-family: sans-serif;
+  background-color: $white;
+  
+  &__title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    width: 210px;
+    margin: 0 auto 10px;
+  }
+  
+  &__time-block {
+    display: flex;
+    justify-content: center;
+    width: 60px;
+    font-family: sans-serif;
+    font-size: 40px;
+    line-height: 40px;
+    padding: 5px 0;
+    border: 2px solid $blue;
+    border-radius: 1px;
+    cursor: default;
+  }
+  
+  &__control-block {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    
+    & .btn {
+      margin-right: 10px;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.control-panel {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  
+  &__btn {
+    @include reset-btn;
+    
+    width: 64px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 15px;
+    transition: 0.3s;
+    
+    &:hover {
+      color: $blue;
+    }
+    
+    &:nth-child(1) {
+      border: 2px solid $blue;
+      border-radius: 10px 0 0 10px;
+    }
+    
+    &:nth-child(2) {
+      border-top: 2px solid $blue;
+      border-bottom: 2px solid $blue;
+    }
+    
+    &:nth-child(3) {
+      border: 2px solid $blue;
+      border-radius: 0 10px 10px 0;
+    }
+  }
+}
+
+.btn {
+  @include reset-btn;
+  
+  padding: 5px 10px;
+  border-radius: 1px;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: $white;
+  background: $blue;
+  transition: 0.3s;
+  
+  &:hover {
+    box-shadow: 0px 2px 8px 2px $shadow;
+    transform: scale(1.05);
+  }
+}
